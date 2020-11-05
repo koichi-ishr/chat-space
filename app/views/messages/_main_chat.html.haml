@@ -1,1 +1,38 @@
-＜チャット画面＞
+.main_form
+  .main_header
+    .left_header
+      .group test
+      %ul.member_list 
+        %li.member Member:masa
+    = link_to "#", class: "edit__btn" do
+      .edit Edit
+  .messageField
+    .messageBox
+      .messageBox__inf 
+        .messageBox__inf__name masa
+        .messageBox__inf__date 2020/11/4(Wed) 12:00:00
+    .message おはよう!
+    .messageBox
+      .messageBox__inf 
+        .messageBox__inf__name masa
+        .messageBox__inf__date 2020/11/4(Wed) 12:00:00
+    .message おはよう!
+
+
+  .footer
+    .form
+      %input{placeholder:"type a message" , type:"text" , class:"format"}
+      %label{class: "input-box__image"}
+        = icon('fas', 'image')
+        %input{type: "file", class:"img"}
+          
+      %input{type: "submit", value:"Send", class:"btn"}
+
+
+
+  -# .footer
+  -#   .form 
+  -#     %input{type: "text"}
+
+  -#   %input{type: "submit", value:"Send", class:"btn"}
+

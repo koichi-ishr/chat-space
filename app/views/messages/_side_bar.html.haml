@@ -1,1 +1,17 @@
-＜サイドバー＞
+.side
+  .side__header
+    .side__box
+      %p.side_name masa
+      %ul.side_setting
+        %li.setting
+        = link_to "#", class: "setting__btn" do
+          = icon('far','edit')
+        %span<>
+        %li.cog
+        = link_to "#", class: "cog__btn" do
+          = icon('fas','cog')
+    
+  .grouplist
+    .grouplist__box
+      .grouplist__box__name techcamp
+      .grouplist__box__message まだメッセージはありません。
