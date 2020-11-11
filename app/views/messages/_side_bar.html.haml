@@ -5,27 +5,18 @@
         = current_user.name
       %ul.side_setting
         %li.setting
-          = link_to "#", class: "setting__btn" do
+          = link_to new_group_path, class: "setting__btn" do
             = icon('far','edit')
         %li.cog
           = link_to edit_user_path(current_user), class: "cog__btn" do
             = icon('fas','cog')
     
   .grouplist
-    .grouplist__box
-      .grouplist__box__name techcamp
-      .grouplist__box__message まだメッセージはありません。
+    - current_user.groups.each do | group | 
+      .grouplist__box
+        =link_to "#" , class:"group_link" do
+          .grouplist__box__name
+            = group.name
+          .grouplist__box__message まだメッセージはありません。
 
 
--# /.side
--#   /.side__header
--#     /.side__box
--#       /%p.side_name masa
--#       /%ul.side_setting
--#         /%li.setting
--#         /= link_to "#", class: "setting__btn" do
--#           /= icon('far','edit')
--#         /%span<>
--#         /%li.cog
--#         /= link_to "#", class: "cog__btn" do
-          -# /= icon('fas','cog')
