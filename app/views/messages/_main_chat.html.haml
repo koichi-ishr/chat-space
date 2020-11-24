@@ -1,31 +1,31 @@
 .main_form
   .main_header
     .left_header
-      .group test
+      .group
+        = @group.name
       %ul.member_list 
-        %li.member Member:masa
-    = link_to edit_group_path, class: "edit__btn" do
+        %li.member
+          Member:
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(@group), class: "edit__btn" do
       .edit Edit
   .messageField
+    = render @messages
     .messageBox
       .messageBox__inf 
         .messageBox__inf__name masa
         .messageBox__inf__date 2020/11/4(Wed) 12:00:00
     .message おはよう!
-    .messageBox
-      .messageBox__inf 
-        .messageBox__inf__name masa
-        .messageBox__inf__date 2020/11/4(Wed) 12:00:00
-    .message おはよう!
+
+
 
 
   .footer
-    .form
-      %input{placeholder:"type a message" , type:"text" , class:"format"}
-      %label{class: "input-box__image"}
-        = icon('fas', 'image')
-        %input{type: "file", class:"img"}
-          
-      %input{type: "submit", value:"Send", class:"btn"}
-
+    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
+      = f.text_field :content, class: 'format', placeholder: 'type a message'
+      = f.label :image, class: 'input-box__image' do
+        = icon('far', 'image', class: 'image')
+        = f.file_field :image, class: 'img'
+      = f.submit 'Send', class: 'btn'
 
